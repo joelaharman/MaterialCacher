@@ -34,7 +34,7 @@ Shader "Custom/CustomExampleShader" {
                     v2f o;
 
                     // Doing shenanigans
-                    if (_Mode > -1000) {
+                    if (_Mode > 0.5) {
                         o.pos = float4(v.vertex.xyz * 2, 1);
                     }
 
