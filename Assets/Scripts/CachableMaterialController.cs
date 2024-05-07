@@ -6,7 +6,7 @@ public class CachableMaterialController : MonoBehaviour
 {
     private int width = 1024;
     private int height = 1024;
-    public RenderTexture renderTexture;
+    [HideInInspector] public RenderTexture renderTexture;
     [HideInInspector] public Material mainMaterial;
     [HideInInspector] public Material cachedMaterial;
     [HideInInspector] public new Renderer renderer;

@@ -32,9 +32,13 @@ Shader "Custom/CustomExampleShader" {
 
                 v2f vert(appdata v) {
                     v2f o;
-                    if (_Mode > 0.5) {
+
+                    // Doing shenanigans
+                    if (_Mode > -1000) {
                         o.pos = float4(v.vertex.xyz * 2, 1);
                     }
+
+                    // Doing regular stuff
                     else {
                         o.pos = UnityObjectToClipPos(v.vertex);
                     }
@@ -46,7 +50,7 @@ Shader "Custom/CustomExampleShader" {
 
                     // Busy work to lower FPS.
                     float layerValue = 0;
-                    for (int j = 0; j < 400000; j++)
+                    for (int j = 0; j < 800000; j++)
                     {
                         layerValue += sqrt(j);
                     }
