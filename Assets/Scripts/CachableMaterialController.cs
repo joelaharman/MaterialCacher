@@ -13,6 +13,7 @@ public class CachableMaterialController : MonoBehaviour
 
     void Start()
     {
+        MaterialCacher.Setup();
         renderTexture = new RenderTexture(width, height, 32);
         renderer = GetComponent<Renderer>();
         cachedMaterial = new Material(Shader.Find("Unlit/Texture"));
@@ -30,8 +31,12 @@ public class CachableMaterialController : MonoBehaviour
 
     private void SwapToCachedMaterial ()
     {
+        mainMaterial.SetFloat("_Mode", 1.0f);
+
         // Update the saved texture.
         MaterialCacher.Cache(this);
+
+        mainMaterial.SetFloat("_Mode", 0.0f);
 
         // Swap to the material with the "saved" texture.
         renderer.material = cachedMaterial;
